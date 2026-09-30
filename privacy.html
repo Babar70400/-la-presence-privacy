@@ -51,11 +51,11 @@
   <a class="app-back" href="/famille.html">‹ Retour au Cercle</a>
   <main>
     <h1>Politique de confidentialité – La Présence</h1>
-    <p class="meta">Dernière mise à jour : 16 septembre 2026</p>
+    <p class="meta">Dernière mise à jour : 30 septembre 2026</p>
 
     <p>
       La présente politique de confidentialité décrit la manière dont l’application
-      <strong>La Présence</strong> traite et protège les informations et contenus de ses utilisateurs.
+      <strong>La Présence</strong> et <strong>Le Cercle</strong> traitent et protègent les informations et contenus de ses utilisateurs.
     </p>
 
     <div class="contact">
@@ -142,8 +142,16 @@
       <strong>PostgreSQL</strong>.
     </p>
     <p>
-      Ces services sont utilisés pour assurer le fonctionnement technique, la disponibilité, la sécurité et les fonctionnalités
-      de l’application.
+      Les photos, messages vocaux et autres médias peuvent être conservés dans un stockage objet compatible S3
+      fourni par Railway, en complément de PostgreSQL. Les références et empreintes des fichiers permettent
+      de contrôler leur intégrité à la lecture. Ces espaces ne sont pas des galeries publiques.
+    </p>
+    <p>
+      Des sauvegardes quotidiennes de PostgreSQL et des fichiers sont copiées vers un espace distinct
+      de stockage objet, notamment Cloudflare R2, pour permettre une reprise après incident.
+      Des tests de restauration sont réalisés dans un environnement isolé ; les copies de test sont supprimées
+      à la fin du contrôle. Les accès aux espaces de stockage et de sauvegarde sont réservés aux opérations
+      nécessaires au fonctionnement et à la sécurité du service.
     </p>
 
     <h2>7. Notifications</h2>
@@ -164,12 +172,28 @@
       et politiques.
     </p>
 
+    <p>
+      La Présence conserve les identifiants et justificatifs techniques de transaction,
+      le produit acheté, les dates et l’état des droits pour valider et restaurer les achats.
+      Pour un cadeau de trois mois, le service conserve le code de cadeau, son état
+      (disponible, utilisé ou en attente), la transaction de l’acheteur et, après activation,
+      l’identifiant technique du bénéficiaire et les dates de validité.
+      Le cadeau ne donne pas à l’acheteur un accès automatique aux conversations,
+      aux souvenirs privés ou au Cercle du bénéficiaire. Le code doit rester confidentiel.
+    </p>
+    <p>
+      Les formules, les prix et les conditions de renouvellement sont détaillés dans les
+      <a href="https://api.lapresence.fr/terms.html">conditions du service et des achats</a>.
+      Le prix indiqué dans la confirmation Apple avant l’achat fait foi.
+    </p>
+
     <h2>9. Prestataires tiers</h2>
     <p>Pour fournir certaines fonctionnalités, La Présence peut faire appel notamment à :</p>
     <ul>
       <li><strong>Apple</strong>, pour la distribution de l’application, les achats intégrés et les notifications ;</li>
       <li><strong>OpenAI</strong>, pour certaines fonctionnalités d’intelligence artificielle et de traitement vocal ;</li>
-      <li><strong>Railway</strong>, pour certaines fonctions d’hébergement et d’infrastructure serveur.</li>
+      <li><strong>Railway</strong>, pour l’hébergement, PostgreSQL et le stockage objet principal ;</li>
+      <li><strong>Cloudflare</strong>, pour le stockage objet secondaire des sauvegardes R2.</li>
     </ul>
     <p>
       Ces prestataires peuvent traiter les informations strictement nécessaires à la fourniture de leurs services,
@@ -191,6 +215,13 @@
       et, si elles ne sont jamais consultées, au plus tard 30 jours après leur envoi.
       Les journaux techniques sont conservés pendant une durée maximale de 90 jours, sauf nécessité de sécurité ou obligation légale.
       Les données de transaction nécessaires à la preuve comptable peuvent être conservées pendant la durée légale applicable.
+    </p>
+    <p>
+      Les sauvegardes servent uniquement à la reprise après incident. Les instantanés sont conservés
+      sur une fenêtre de 30 jours, avec une purge quotidienne : les données supprimées du service actif
+      peuvent donc subsister dans les copies de sauvegarde jusqu’à 31 jours. Les fichiers encore nécessaires
+      à un compte actif restent conservés dans le service et dans ses sauvegardes.
+      Les demandes de suppression doivent être réappliquées avant la remise en service d’une base restaurée.
     </p>
     <p>
       L’utilisateur peut exporter ses données ou supprimer son compte et les données associées depuis les réglages de l’application.
@@ -230,10 +261,11 @@
     </ul>
 
     <h2>15. Transferts hors Union européenne</h2>
-    <p>Apple, OpenAI ou Railway peuvent traiter certaines données en dehors de l’Union européenne. Lorsque le RGPD l’exige, ces transferts doivent reposer sur une décision d’adéquation ou sur des garanties appropriées, notamment les clauses contractuelles types de la Commission européenne. Des informations complémentaires peuvent être demandées au contact indiqué ci-dessus.</p>
+    <p>Apple, OpenAI, Railway ou Cloudflare peuvent traiter certaines données en dehors de l’Union européenne. Lorsque le RGPD l’exige, ces transferts doivent reposer sur une décision d’adéquation ou sur des garanties appropriées, notamment les clauses contractuelles types de la Commission européenne. Des informations complémentaires peuvent être demandées au contact indiqué ci-dessus.</p>
 
     <h2>16. Mineurs et contenus concernant des tiers</h2>
     <p>L’application n’est pas destinée à être utilisée seul par un enfant de moins de 15 ans en France. Lorsqu’un utilisateur partage des informations concernant une autre personne vivante, il doit disposer d’un motif légitime pour le faire et respecter ses droits. Aucun contenu concernant un tiers n’est transmis à l’IA sans l’autorisation prévue dans l’application. Un souvenir préparé pour un futur membre du Cercle ne devient visible par ce membre qu’après son inscription et la confirmation explicite du Parent.</p>
+    <p>Dans l’Arbre de Vie, un membre du Cercle peut proposer au Parent l’ajout d’une personne et indiquer uniquement les informations nécessaires à la représentation familiale, notamment son nom affiché, son lien de parenté et, de manière facultative, ses années de naissance ou de décès. Ces propositions, qui peuvent concerner un mineur, restent soumises à la validation du Parent. Elles peuvent être refusées ou supprimées et ne sont jamais utilisées à des fins publicitaires.</p>
 
     <h2>17. Vos droits</h2>
     <p>Dans les conditions prévues par le RGPD, vous pouvez demander l’accès, la rectification, l’effacement, la limitation ou la portabilité de vos données, vous opposer à certains traitements et retirer votre consentement à tout moment. Vous pouvez également déposer une réclamation auprès de la CNIL sur <a href="https://www.cnil.fr">www.cnil.fr</a>.</p>
